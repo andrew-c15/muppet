@@ -1,54 +1,125 @@
-<b>Muppet Stuff<b/>
-<br>
+<!DOCTYPE html>
+<html>
+  <body bgcolor="#20282e">
 
- <div id="myBtnContainer">
+<style>
+.filterDiv {
+  float: left;
+  background-color: #20282e;
+  color: #ffffff;
+  width: 100px;
+  line-height: 40px;
+  text-align: center;
+  margin: 50px;
+  display: none;
+  font color: white;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+<body style="color: white;font-family: verdana">
+
+<h2>Muppet Stuff
+</h2>
+
+<div id="myBtnContainer">
   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
   <button class="btn" onclick="filterSelection('Italian')"> Italian</button>
   <button class="btn" onclick="filterSelection('United')"> United</button>
   <button class="btn" onclick="filterSelection('English')"> English</button>
 </div>
+
 <div class="container">
-    <div class="filterDiv Italian">Di Marzio:
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/DiMarzio?ref_src=twsrc%5Etfw">Tweets by DiMarzio</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <div class="filterDiv Italian"> Di Marzio:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/DiMarzio?ref_src=twsrc%5Etfw">Tweets by DiMarzio</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 &nbsp;</div>
-  </div>
-
-
-Agresti:
-
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/romeoagresti?ref_src=twsrc%5Etfw">Tweets by romeoagresti</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <div class="filterDiv English United">Stone:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/sistoney67?ref_src=twsrc%5Etfw">Tweets by sistoney67</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+&nbsp;</div>
+  <div class="filterDiv English United">Peach:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/SimonPeach?ref_src=twsrc%5Etfw">Tweets by SimonPeach</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 &nbsp;
-
-Pedulla:
-
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/AlfredoPedulla?ref_src=twsrc%5Etfw">Tweets by AlfredoPedulla</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+  <div class="filterDiv English United">Norwood:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/CraigNorwood?ref_src=twsrc%5Etfw">Tweets by CraigNorwood</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+&nbsp;</div>
+  <div class="filterDiv English">Telegraph:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/TeleFootball?ref_src=twsrc%5Etfw">Tweets by TeleFootball</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 &nbsp;
+</div>
+  <div class="filterDiv Italian">Romano:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/FabrizioRomano?ref_src=twsrc%5Etfw">Tweets by FabrizioRomano</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+&nbsp;</div>
+  <div class="filterDiv Italian">Agresti:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/romeoagresti?ref_src=twsrc%5Etfw">Tweets by romeoagresti</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+&nbsp;</div>
+  <div class="filterDiv animals">Pedulla:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/AlfredoPedulla?ref_src=twsrc%5Etfw">Tweets by AlfredoPedulla</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+&nbsp;</div>
 
-Stone:
+</div>
 
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/sistoney67?ref_src=twsrc%5Etfw">Tweets by sistoney67</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-&nbsp;
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
 
-Peach:
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
 
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/SimonPeach?ref_src=twsrc%5Etfw">Tweets by SimonPeach</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-&nbsp;
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
 
-Norwood:
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
 
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/CraigNorwood?ref_src=twsrc%5Etfw">Tweets by CraigNorwood</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-&nbsp;
-
-Norwood:
-
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/CraigNorwood?ref_src=twsrc%5Etfw">Tweets by CraigNorwood</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-&nbsp;
-
-Telegraph:
-
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/TeleFootball?ref_src=twsrc%5Etfw">Tweets by TeleFootball</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-&nbsp;
-
-Romano:
-<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/FabrizioRomano?ref_src=twsrc%5Etfw">Tweets by FabrizioRomano</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-&nbsp;
+</body>
+</html>
