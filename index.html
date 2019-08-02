@@ -1,9 +1,73 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+
+<body style="color: white;font-family: 'Baloo Bhai';margin:10px">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+</style>
+</head>
+<body onload="myFunction()" style="margin:0;">
+
+<div id="loader"></div>
+
+<div style="display:none;" id="myDiv" class="animate-bottom">
+
  <title>MUPPETS UNITE</title>
 
   <body bgcolor="#20282e">
-  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 
 
 <style>
@@ -50,7 +114,6 @@
   color: white;
 }
 </style>
-<body style="color: white;font-family: 'Baloo Bhai';margin:10px">
 
 <h2>Muppet Stuff
 </h2>
@@ -86,7 +149,7 @@
 &nbsp;</div>
   <div class="filterDiv Italian">Pedulla:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/AlfredoPedulla?ref_src=twsrc%5Etfw">Tweets by AlfredoPedulla</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 &nbsp;</div>
-<div class="filterDiv ITK">OleSolskjaerSzn:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/OleSolskjaerSZN">Tweets by OleSolskjaerSzn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="filterDiv Italian">OleSolskjaerSzn:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/OleSolskjaerSZN">Tweets by OleSolskjaerSzn</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 &nbsp;</div>
 <div class="filterDiv English United">Ducker:<a class="twitter-timeline" data-lang="en" data-width="220" data-height="500" data-theme="dark" href="https://twitter.com/TelegraphDucker">Tweets by James Ducker</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 &nbsp;</div>
@@ -140,7 +203,6 @@ function w3RemoveClass(element, name) {
   element.className = arr1.join(" ");
 }
 
-// Add active class to the current button (highlight it)
 var btnContainer = document.getElementById("myBtnContainer");
 var btns = btnContainer.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
@@ -149,6 +211,23 @@ for (var i = 0; i < btns.length; i++) {
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
   });
+}
+</script>
+
+</body>
+
+</div>
+
+<script>
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
 }
 </script>
 
